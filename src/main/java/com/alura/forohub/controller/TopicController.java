@@ -47,6 +47,7 @@ public class TopicController {
                                                       @RequestBody UpdateTopicDTO topicDTO) {
         Topic topic = topicRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
+        topic.update(topicDTO);
         return ResponseEntity.ok(new DetailTopicDTO(topic));
     }
 }
