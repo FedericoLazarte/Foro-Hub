@@ -1,0 +1,9 @@
+CREATE TABLE topics (
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL UNIQUE,
+    message TEXT NOT NULL UNIQUE,
+    creation_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    status VARCHAR(50) NOT NULL CHECK (status IN ('ACTIVE', 'INACTIVE')),
+    author VARCHAR(100) NOT NULL,
+    course VARCHAR(100) NOT NULL
+);
