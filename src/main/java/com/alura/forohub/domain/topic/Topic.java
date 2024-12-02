@@ -1,6 +1,7 @@
 package com.alura.forohub.domain.topic;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -46,5 +47,16 @@ public class Topic {
         this.status = Status.ACTIVE;
         this.author = data.author();
         this.course = data.course();
+    }
+
+    public void update(UpdateTopicDTO topicDTO) {
+        if (topicDTO.title() != null)
+            this.title = topicDTO.title();
+        if (topicDTO.message() != null)
+            this.message = topicDTO.message();
+        if (topicDTO.author() != null)
+            this.author = topicDTO.author();
+        if (topicDTO.course() != null)
+            this.course = topicDTO.course();
     }
 }
