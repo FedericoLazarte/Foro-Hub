@@ -23,6 +23,8 @@ public class ErrorHandler {
         return ResponseEntity.badRequest().body(errors);
     }
 
+
+
     private record HandleValidationError(String field, String error) {
         public HandleValidationError(FieldError error) {
             this(error.getField(), error.getDefaultMessage());

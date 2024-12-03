@@ -7,8 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface TopicRepository extends JpaRepository<Topic, Long> {
+    Optional<Topic> findByIdAndStatus(Long id, Status status);
+
     @Query("""
             SELECT t FROM Topic t
             WHERE t.status = :status

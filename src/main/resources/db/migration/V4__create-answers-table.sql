@@ -1,0 +1,8 @@
+CREATE TABLE answers (
+    id SERIAL PRIMARY KEY,
+    message VARCHAR(250) NOT NULL,
+    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    author VARCHAR(100) NOT NULL,
+    topic_id BIGINT NOT NULL,
+    CONSTRAINT fk_topic FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
+);
